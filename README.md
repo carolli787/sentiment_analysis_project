@@ -73,31 +73,6 @@ sentiment_analysis_project.ipynb   data exploration
  models/sentiment_model.joblib ── loaded once at startup ──►  {"sentiment", "confidence"}
 ```
 
-## API
-
-### `POST /evaluate`
-
-Request: `{"text": "<1 to 1000 characters>"}` with `Content-Type: application/json`.
-
-Response `200 OK`: `{"sentiment": "positive" | "negative", "confidence": 0.5–1.0}`. `confidence` is the model's probability for the returned label; values near 0.5 mean it's unsure.
-
-| Status | When |
-|--------|------|
-| `400` | Invalid JSON; `text` missing, `null`, not a string, empty or whitespace-only, or over 1,000 characters |
-| `405` | Any method other than `POST` |
-| `415` | Content type is not `application/json` |
-| `500` | Unexpected error (JSON body, no details; the error is logged) |
-
-Errors use DRF's standard format, for example `{"text": ["This field may not be blank."]}`.
-
-### `GET /health`
-
-`{"status": "ok"}` once the server is up with the model loaded.
-
-### Why `/evaluate`?
-
-The assignment names the endpoint `POST /evaluate`, so I kept it. A strictly resource-oriented design would use a noun, such as `POST /sentiments` or `POST /sentiment-predictions`. `POST` is the right method either way: the request carries a body, and the result isn't a stored resource that `GET` could retrieve.
-
 ## Modeling
 
 **Data.** Sentiment140: 1.6M tweets labeled automatically from emoticons (so the labels are noisy), and a hand-labeled test set of 498 tweets.
