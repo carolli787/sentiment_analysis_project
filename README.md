@@ -75,15 +75,15 @@ sentiment_analysis_project.ipynb   data exploration
 
 ## Modeling
 
-**Data.** Sentiment140: 1.6M tweets labeled automatically from emoticons (so the labels are noisy), and a hand-labeled test set of 498 tweets.
+**Data.** Sentiment140: 1.6M tweets; test set of 498 tweets.
 
 **Decisions:**
 - **Binary classifier.** The training data has no neutral tweets, so the 139 neutral test tweets are excluded from scoring.
-- **Duplicates removed.** Texts that appear with both labels are dropped entirely, and other duplicates are kept once. This prevents the same tweet from appearing in both training and validation, and stops spam from being counted many times.
+- **Duplicates removed.** Texts that appear with both labels are dropped entirely, and other duplicates are kept once. 
 - **Stratified, shuffled split** (98% train, 2% validation, seed 42). The raw file is sorted by label.
 - **Model selection on validation only.** The test set is scored once, after the model is chosen.
 - **Preprocessing.** Lowercase, decode HTML entities, replace URLs and @mentions with placeholder tokens, shorten "soooo" to "soo", and treat "don't" and "dont" as the same word. Negation words are kept, since "not good" ≠ "good".
-- **Features and model.** TF-IDF over word unigrams and bigrams (bigrams capture phrases like "not good"), with logistic regression. This is the standard strong baseline for short-text classification. It trains in under a minute, predicts in well under a millisecond, and its probabilities give a usable confidence score.
+- **Features and model.** TF-IDF over word unigrams and bigrams, with logistic regression. 
 
 ## Results
 
