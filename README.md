@@ -31,8 +31,6 @@ curl -X POST http://127.0.0.1:8000/evaluate -H "Content-Type: application/json" 
 # Run the tests (they don't need a trained model, except one acceptance test that is skipped without it)
 python manage.py test
 
-# Measure latency against the running server
-python scripts/benchmark.py
 ```
 
 The data is expected in `trainingandtestdata/` (the Sentiment140 CSV files).
