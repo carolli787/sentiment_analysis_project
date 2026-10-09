@@ -96,7 +96,6 @@ From `models/sentiment_model.json` (seed 42). Rerunning `python -m sentiment.tra
 | 1.0 | 82.86% |
 | **2.0 (chosen)** | **82.87%** |
 
-The curve is flat between 1.0 and 2.0, so larger values aren't worth exploring.
 
 | Set | Rows | Accuracy | Macro F1 |
 |-----|------|----------|----------|
