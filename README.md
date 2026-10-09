@@ -135,7 +135,3 @@ The test set's confusion matrix (rows show the true label, columns the predicted
 | **negative** | 134 | 43 |
 | **positive** | 20  | 162 |
 
-- Test accuracy is close to validation accuracy, even though the test set was labeled by hand and collected differently. The model handles that shift well.
-- Most test errors are negative tweets predicted as positive, and many of those have low confidence (0.5–0.6). They are mostly criticism aimed at a company or a politician (AIG, Cheney, AT&T, GM), sarcasm, or mixed tweets ("Lebron is a Beast, but I'm still cheering 4 the A"). The training data, which is personal tweets labeled from emoticons, has few examples like these.
-- The result is in line with the 80–83% that Go et al. (2009) reported for simple models on this same test set.
-- **Latency.** On an Apple Silicon laptop running `runserver`, `scripts/benchmark.py` measured p50 0.6 ms and p95 0.8 ms per request. Loading the model at startup takes about 1 second, and the model file is about 20 MB.
