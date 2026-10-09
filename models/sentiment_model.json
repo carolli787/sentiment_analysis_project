@@ -1,0 +1,81 @@
+{
+  "trained_at": "2026-10-08T16:55:02+00:00",
+  "model": {
+    "type": "TF-IDF (word 1-2 grams) + logistic regression",
+    "regularization": 2.0,
+    "max_features": 500000,
+    "min_df": 2
+  },
+  "data": {
+    "train_file": "training.1600000.processed.noemoticon.csv",
+    "test_file": "testdata.manual.2009.06.14.csv",
+    "cleaning": {
+      "rows_in": 1600000,
+      "conflicting_rows_dropped": 6895,
+      "duplicate_rows_dropped": 13864,
+      "rows_out": 1579241
+    },
+    "sample_size": null,
+    "seed": 42,
+    "validation_fraction": 0.02,
+    "split_sizes": {
+      "train": 1547656,
+      "validation": 31585,
+      "test": 359
+    }
+  },
+  "metrics": {
+    "validation_by_regularization": {
+      "0.25": 0.8206,
+      "0.5": 0.8238,
+      "1.0": 0.8286,
+      "2.0": 0.8287
+    },
+    "validation": {
+      "rows": 31585,
+      "accuracy": 0.8287,
+      "macro_f1": 0.8287,
+      "confusion_matrix": {
+        "labels": [
+          "negative",
+          "positive"
+        ],
+        "matrix": [
+          [
+            12931,
+            2828
+          ],
+          [
+            2581,
+            13245
+          ]
+        ]
+      }
+    },
+    "test": {
+      "rows": 359,
+      "accuracy": 0.8245,
+      "macro_f1": 0.8234,
+      "confusion_matrix": {
+        "labels": [
+          "negative",
+          "positive"
+        ],
+        "matrix": [
+          [
+            134,
+            43
+          ],
+          [
+            20,
+            162
+          ]
+        ]
+      }
+    }
+  },
+  "environment": {
+    "python": "3.12.14",
+    "scikit_learn": "1.9.1"
+  }
+}
