@@ -82,7 +82,7 @@ sentiment_analysis_project.ipynb   data exploration
 - **Duplicates removed.** Texts that appear with both labels are dropped entirely, and other duplicates are kept once. 
 - **Stratified, shuffled split** (98% train, 2% validation, seed 42). The raw file is sorted by label.
 - **Model selection on validation only.** The test set is scored once, after the model is chosen.
-- **Preprocessing.** Lowercase, decode HTML entities, replace URLs and @mentions with placeholder tokens, shorten "soooo" to "soo", and treat "don't" and "dont" as the same word. Negation words are kept, since "not good" ≠ "good".
+- **Preprocessing.** Lowercase, decode HTML entities, replace URLs and @mentions with placeholder tokens, etc. 
 - **Features and model.** TF-IDF over word unigrams and bigrams, with logistic regression. 
 
 ## Results
